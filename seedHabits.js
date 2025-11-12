@@ -181,7 +181,7 @@ const amazingHabits = [
     description: "10 minutes of gentle stretching before bed. Improve flexibility, reduce muscle tension, and promote better sleep.",
     category: "Health & Fitness",
     reminderTime: "21:30",
-    imageUrl: null,
+    imageUrl: "https://i.ibb.co/Pvq5CF2x/6c9e7621-e375-4ec0-99ca-82f27e91160f.jpg",
     userEmail: "demo@example.com",
     userName: "Ava Garcia",
     authorName: "Ava Garcia",
@@ -196,33 +196,33 @@ const amazingHabits = [
 async function seedHabits() {
   try {
     await client.connect();
-    console.log('✅ Connected to MongoDB!');
+    console.log(' Connected to MongoDB!');
 
     const database = client.db('habitTrackerDB');
     const habitsCollection = database.collection('habits');
 
     // Clear existing demo habits (optional)
-    console.log('🗑️  Clearing existing demo habits...');
+    console.log('  Clearing existing demo habits...');
     await habitsCollection.deleteMany({ userEmail: 'demo@example.com' });
 
     // Insert amazing habits
-    console.log('📝 Inserting amazing habits...');
+    console.log(' Inserting amazing habits...');
     const result = await habitsCollection.insertMany(amazingHabits);
     
-    console.log(`\n🎉 SUCCESS! ${result.insertedCount} amazing habits created!`);
-    console.log('\n✨ Created habits:');
+    console.log(`\n SUCCESS! ${result.insertedCount} amazing habits created!`);
+    console.log('\n Created habits:');
     amazingHabits.forEach((habit, index) => {
       console.log(`   ${index + 1}. ${habit.title} - ${habit.category} (${habit.currentStreak} day streak)`);
     });
 
     console.log('\n🌟 Your webpage should now display these amazing habits!');
-    console.log('🔗 Visit: http://localhost:5174\n');
+    console.log(' Visit: http://localhost:5174\n');
 
   } catch (error) {
     console.error('❌ Error seeding habits:', error);
   } finally {
     await client.close();
-    console.log('👋 Disconnected from MongoDB');
+    console.log(' Disconnected from MongoDB');
   }
 }
 
