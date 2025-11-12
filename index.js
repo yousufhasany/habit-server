@@ -12,6 +12,9 @@ const corsOptions = {
   origin: [
     'http://localhost:5173', // Local development
     'http://localhost:5174',
+    'http://localhost:5175',
+    'https://email-pass-auth-37764.web.app', // Firebase Hosting
+    'https://email-pass-auth-37764.firebaseapp.com', // Firebase Hosting alternative
     'https://your-netlify-app.netlify.app', // Replace with your actual Netlify URL
     'https://your-custom-domain.com' // Replace with your custom domain if you have one
   ],
